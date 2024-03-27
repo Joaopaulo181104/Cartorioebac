@@ -49,7 +49,7 @@ int registro() //função responsável por cadastrar usuários no sistema
 	scanf("%s",cargo); //%s refere-se a string (salvar a string)
  	
 	file = fopen(arquivo, "a"); //abre o arquivo e o "a" significa atualizar
-	fprintf(file,cargo); //salva o valor da variávle
+	fprintf(file,cargo); //salva o valor da variável
 	fclose(file); //fecha o arquivo
 	
 	system("pause"); //pausa o sistema na tela desejada
@@ -73,43 +73,43 @@ int consulta() //responsável pela consulta dos usuários no sistema
 	scanf("%s",cpf); //%s refere-se a string (salvar a string)
 	
 	FILE *file;
-	file = fopen(cpf,"r");
+	file = fopen(cpf,"r"); //abre o arquivo e o "r" significa abrir somente para leitura
 	
 	
-	if(file == NULL)
+	if(file == NULL) 
 	{
-		printf("Não foi possível abrir o arquivo, não localizado! .\n");
+		printf("Não foi possível abrir o arquivo, não localizado! .\n"); //sinalizando que o usuário não está no sistema
 	}
 	
 	while(fgets(conteudo, 200, file) != NULL)
 	{
-		printf("\nEssas são as informações do usuário: ");
-		printf("%s", conteudo);
+		printf("\nEssas são as informações do usuário: "); //mostrando as informações do usuário
+		printf("%s", conteudo); //mostrando as informações do usuário
 		printf("\n\n");
 	}
 	
-	system("pause");
-	fclose(file);
+	system("pause"); //pausa o sistema na tela desejada
+	fclose(file); //fecha o arquivo 
 	
 }
 
 
-int deletar()
+int deletar() //Responsável pela remoção de usuários do sistema
 {
-	char cpf[40];
+	char cpf[40]; //criação e final da criação das variáveis
 	
-	printf("Digite o CPF a ser deletado: ");
-	scanf("%s", cpf);
+	printf("Digite o CPF a ser deletado: "); //coletando informações do usuário
+	scanf("%s", cpf); //%s refere-se a string (salvar a string)
 	
-	remove(cpf);
+	remove(cpf); //remove o cpf do sistema
 	
 	FILE *file;
-	file = fopen(cpf,"r");
+	file = fopen(cpf,"r"); //abre o arquivo e o "r" significa abrir somente para leitura
 	
 	if(file == NULL)
 	{
-		printf("O usuário não se encontra no sistema!.\n");
-		system("pause");
+		printf("O usuário não se encontra no sistema!.\n"); //confirmação de remoção do usuário
+		system("pause"); //pausa o sistema na tela desejada
 	}
 	
 }
@@ -137,7 +137,7 @@ int main()
     
     scanf("%d", &opcao); //armazenando a escolha do usuário
     
-    system("cls");
+    system("cls"); //responsável por limpar a tela
     
     
     switch(opcao) //inicio da seleção
@@ -147,11 +147,11 @@ int main()
     	break;
 	
 	case 2:
-	        consulta();
+	        consulta(); //chamada de funções
     	break;
 	
 	case 3:
-		    deletar();
+		    deletar(); //chamada de funções
 		break;
 		
 	case 4:
